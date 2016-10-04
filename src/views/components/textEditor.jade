@@ -1,0 +1,10 @@
+//- requires:
+//-     slideout.less
+
+mixin textEditor(id)
+    div(id=id).slideout.left.auto-expand
+        div.title Edit text
+        div.slideout_inner
+            textarea.text
+            br
+            input.apply(type="button", value="Apply")

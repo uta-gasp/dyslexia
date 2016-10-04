@@ -1,0 +1,20 @@
+//- requires:
+//-     slideout.less
+
+mixin options(id)
+    div(id=id).slideout.right
+        div.title Options
+        div.slideout_inner
+            .group Colors
+                .row
+                    .label Text color
+                    input.color.value#text
+                .row
+                    .label Current word
+                    input.color.value#currentWord
+                .row
+                    .label Next word
+                    input.color.value#nextWord
+            br
+            input.save(type="button", value="Save")
+            input.close(type="button", value="Close")
