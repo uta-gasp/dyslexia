@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  padding: 50pt;
+}
+
+.dyslexiaText {
+  background-color: #FFFFFF;
+  color: #EEEEEE;
+  font-size: 18pt;
+  font-weight: bold;
+  line-height: 200%;
+}
+.dyslexiaText .currentWord {
+  color: #222222;
+}
+.dyslexiaText .currentWord + span {
+  color: #BBBBBB;
+}
+
+#options .group {
+  font-size: 14pt;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+#options .group .row {
+  font-size: 12pt;
+  font-weight: normal;
+}
+#options .group .row .label {
+  width: 7em;
+  display: inline-block;
+}
+#options .group .row .value {
+  width: 4em;
+  min-height: 1.4em;
+  display: inline-block;
+}
+
+.slideout {
+  position: fixed;
+  bottom: 0;
+  transition-duration: 0.3s;
+  color: white;
+}
+.slideout.locked {
+  display: none;
+}
+.slideout.left {
+  left: 0;
+}
+.slideout.right {
+  right: 0;
+}
+.slideout .slideout_inner {
+  position: fixed;
+  padding: 12.5px 25px;
+  transition-duration: 0.3s;
+  text-align: left;
+  border-radius: 0 5px 0 0;
+  background: #518FAE;
+}
+.slideout.left .slideout_inner {
+  left: 0;
+}
+.slideout.right .slideout_inner {
+  right: 0;
+}
+.slideout.auto-expand:hover .slideout_inner,
+.slideout.expanded .slideout_inner {
+  position: static;
+}
+.slideout .title {
+  background: #518FAE;
+  border-radius: 5px 5px 0 0;
+  font-size: 14pt;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  padding: 2px 25px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.slideout.auto-expand .title {
+  cursor: default;
+}
+
+#textEditor textarea {
+  width: 800px;
+  height: 400px;
+  margin-bottom: 6px;
+}
