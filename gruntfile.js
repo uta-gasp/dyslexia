@@ -2,15 +2,6 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        
-        clean: {
-            build: {
-                src: ['build/**'],
-                filter: function(filepath) {
-                    return filepath.split('\\').length > 1;
-                }
-            }
-        },
 
         jade: {
             compile: {
@@ -21,7 +12,7 @@ module.exports = function(grunt) {
                     }
                 },
                 files: {
-                    'build/index.html': ['src/views/*.jade']
+                    'index.html': ['src/views/*.jade']
                 }
             },
         },
@@ -29,26 +20,15 @@ module.exports = function(grunt) {
         less: {
             main: {
                 files: {
-                    'build/app.css': ['src/styles/*.less']
+                    'app.css': ['src/styles/*.less']
                 }
             }
         },
 
         concat: {
             js: {
-                src: ['src/js/namespace.js', 'src/js/**'], 
-                dest: 'build/app.js'
-            }
-        },
-
-        copy: {
-            libs: 
-            {
-                expand: true,
-                cwd: 'libs/',
-                src: '**',
-                dest: 'build/libs/',
-                flatten: false
+                src: ['src/js/namespace.js', 'src/js/**'],
+                dest: 'app.js'
             }
         },
 
@@ -62,17 +42,15 @@ module.exports = function(grunt) {
                 ]
             },
             css: {
-                src: 'build/*.css'
+                src: '*.css'
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-postcss');
 
-    grunt.registerTask('default', ['clean', 'jade', 'less', 'concat', 'copy', 'postcss']);
+    grunt.registerTask('default', ['jade', 'less', 'concat', 'postcss']);
 };
